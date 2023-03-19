@@ -45,6 +45,8 @@ pub mod solanapdas {
         }
         **bank.to_account_info().try_borrow_mut_lamports()? -= amount;
         **user.to_account_info().try_borrow_mut_lamports()? += amount;
+
+        bank.balance -= amount;
         Ok(())
     }
 }
